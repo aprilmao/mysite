@@ -1,5 +1,6 @@
 {% load staticfiles %}
 
+
 <html>
     <head>
         <title>April's blog</title>
@@ -19,24 +20,15 @@
         	<h1><a href="{% url 'signup' %}" style="color:#b01313">sign up</a></h1>
     	</div>
     	
-
-	  	<h2>Sign up</h2>
+		<h2>Login</h2>
   		<form method="post">
     		{% csrf_token %}
-    		{% for field in form %}
-      			<p>
-        			{{ field.label_tag }}<br>
-        			{{ field }}
-        			{% for error in field.errors %}
-          				<p style="color: red">{{ error }}</p>
-        			{% endfor %}
-      			</p>
-    		{% endfor %}
-   			 <button type="submit">Sign up</button>
-   			 <h3>Already a member? <a href="{% url 'login' %}" style="color: #828282; font-size: 13pt;">login</a></h3>
+    		{{ form.as_p }}
+    		<button type="submit">Login</button>
+    		<h3>Not a member yet? <a href="{% url 'signup' %} " style="color: #828282; font-size: 13pt;">sign up</a></h1>
   		</form>
-  		
-    	<footer>
+  
+  		<footer>
   			<p>About</p>
   			<p>© 2018 Check List</p>
 		</footer>

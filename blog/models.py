@@ -25,6 +25,11 @@ class Profile(models.Model):
     bio = models.TextField(max_length=500, blank=True)
     location = models.CharField(max_length=30, blank=True)
     birth_date = models.DateField(null=True, blank=True)
+    first_name = models.TextField(max_length=500, blank=True)
+    last_name = models.TextField(max_length=500, blank=True)
+    email = models.TextField(max_length=500, blank=True)
+    password1 = models.TextField(max_length=500, blank=True)
+    username = models.TextField(max_length=500, blank=True)
     
 @receiver(post_save, sender=User)
 def update_user_profile(sender, instance, created, **kwargs):

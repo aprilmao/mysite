@@ -6,27 +6,24 @@
         <title>April's blog</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
     <body>
     	<div class="page-header">
-    		{% if user.is_authenticated %}
-    			<a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-        	{% endif %}
-        	
         	<img src="{% static 'icon.png' %}" alt="Checkmark image" height="90" width="90"/>
         	<h1><a href="/">Check List</a></h1>
-        	<h1><a href="{% url 'signup' %}" style="color:#b01313">sign up</a></h1>
     	</div>
     	
-		<h2>Login</h2>
-  		<form method="post">
-    		{% csrf_token %}
-    		{{ form.as_p }}
-    		<button type="submit">Login</button>
-    		<h3>Not a member yet? <a href="{% url 'signup' %} " style="color: #828282; font-size: 13pt;">sign up</a></h1>
-  		</form>
+    	<div class="loginform">
+			<h2>Login</h2>
+			<form method="post">
+				{% csrf_token %}
+				{{ form.as_p }}
+				<button type="submit">Login</button>
+				<h3>Not a member yet? <a href="{% url 'signup' %} " style="color: #828282; font-size: 13pt;">sign up</a></h1>
+			</form>
+  		</div>
   
   		<footer>
   			<p>About</p>

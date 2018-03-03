@@ -122,4 +122,4 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Login redirect
-LOGIN_REDIRECT_URL = 'blog/base.html'
+LOGIN_REDIRECT_URL = '/'

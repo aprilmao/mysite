@@ -54,3 +54,11 @@ footer {
     color: #333;
     text-align: center;
 }
+
+.loginform {
+	margin-left: 40px;
+}
+
+.signupform {
+	margin-left: 40px;
+}

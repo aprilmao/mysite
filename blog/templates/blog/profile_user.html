@@ -19,11 +19,18 @@
     	</div>
     	
 		<div>
+			<img src="{{ user.model_pic }}" alt="User image" height="90" width="90"/>
 			<h3>{{ user.first_name }} {{ user.last_name }}</h3>
 			<h3>{{ user.email }}</h3>
 		</div>
   		
-  		
+  		<!--PicApril-->
+		<form action="{% url 'upload_pic' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
+    		<p>
+        		<input id="id_image" type="file" class="" name="image">
+    		</p>
+    		<input type="submit" value="Submit" />
+		</form>
   		
     	<footer>
   			<p>About</p>

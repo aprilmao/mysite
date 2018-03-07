@@ -5,6 +5,8 @@ from .models import Post
 from .models import Profile
 from .forms import PostForm
 from .forms import SignUpForm
+from .forms import ImageUploadForm
+from django.http import HttpResponse
     
 def signup(request):
     if request.method == 'POST':
@@ -74,4 +76,14 @@ def explore(request):
 def profile_user(request, username):
 	user = Profile.objects.get(username=username)
 	return render(request, 'blog/profile_user.html', {"user":user})
-	
+
+#PicApril
+def upload_pic(request):
+    if request.method == 'POST':
+        form = ImageUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            m = Profile.objects.get(pk=1)
+            m.model_pic = form.cleaned_data['image']
+            m.save()
+            return HttpResponse('image upload success')
+    return HttpResponseForbidden('allowed only via POST')	

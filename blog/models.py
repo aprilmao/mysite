@@ -31,6 +31,9 @@ class Profile(models.Model):
     password1 = models.TextField(max_length=500, blank=True)
     username = models.TextField(max_length=500, blank=True)
     
+    #PicApril
+    model_pic = models.ImageField(upload_to = 'pic_folder/', default = 'pic_folder/None/no-img.jpg')
+    
 @receiver(post_save, sender=User)
 def update_user_profile(sender, instance, created, **kwargs):
     if created:

@@ -12,4 +12,6 @@ urlpatterns = [
 	url(r'^home/$', views.home, name='home'),
 	url(r'^explore/$', views.explore, name='explore'),
 	url(r'^profile_user/(?P<username>[a-zA-Z0-9]+)$', views.profile_user, name='profile_user'),
+	#PicApril
+	url(r'^upload_pic/$', views.upload_pic, name='upload_pic'),
 ]

@@ -2,6 +2,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.shortcuts import render, redirect
 from django.utils import timezone
 from .models import Post
+from .models import Profile
 from .forms import PostForm
 from .forms import SignUpForm
     
@@ -10,13 +11,10 @@ def signup(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save()
-            user.refresh_from_db() 
+            user.refresh_from_db()
             user.profile.first_name = form.cleaned_data.get('first_name')
-            user.save()
             user.profile.last_name = form.cleaned_data.get('last_name')
-            user.save()
             user.profile.birth_date = form.cleaned_data.get('birth_date')
-            user.save()
             user.profile.email = form.cleaned_data.get('email')
             user.save()
             username = form.cleaned_data.get('username')
@@ -65,5 +63,15 @@ def post_edit(request, pk):
     return render(request, 'blog/post_edit.html', {'form': form})
 
 def event_list(request):
-	return render(request, 'blog/event_list.html', {})
+	return render(request, 'blog/event_list.html')
+	
+def home(request):
+	return render(request, 'blog/home.html')
+	
+def explore(request):
+	return render(request, 'blog/explore.html')
+	
+def profile_user(request, username):
+	user = Profile.objects.get(username=username)
+	return render(request, 'blog/profile_user.html', {"user":user})
 	

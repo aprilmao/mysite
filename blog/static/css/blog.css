@@ -62,3 +62,8 @@ footer {
 .signupform {
 	margin-left: 40px;
 }
+
+body {
+	overflow-y: scroll;
+	height: 101%;
+}

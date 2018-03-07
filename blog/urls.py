@@ -9,4 +9,7 @@ urlpatterns = [
 	url(r'^event/list/$', views.event_list, name='event_list'),
 	url(r'^signup/$', views.signup, name='signup'),
 	url(r'^login/$', views.login, name='login'),
+	url(r'^home/$', views.home, name='home'),
+	url(r'^explore/$', views.explore, name='explore'),
+	url(r'^profile_user/(?P<username>[a-zA-Z0-9]+)$', views.profile_user, name='profile_user'),
 ]

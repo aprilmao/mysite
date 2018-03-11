@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import Post
-from PIL import Image
+from PIL import Image, ImageTk
 
 class PostForm(forms.ModelForm):
 
